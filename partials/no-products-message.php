@@ -1,0 +1,1 @@
+<p style="text-align:center;">No products for this category.</p>

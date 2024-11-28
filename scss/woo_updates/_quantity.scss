@@ -1,0 +1,25 @@
+.quantity {
+}
+
+.quantity + button {
+  padding: 16px 54px !important;
+}
+
+input[type="number"] {
+  //   appearance:;
+}
+
+.quantity input {
+  line-height: 3rem;
+
+  display: block;
+  padding: 0;
+  margin-right: 1em;
+
+  border: 1px solid #cac3c3;
+  border-radius: 4px;
+}
+
+.quantity input:focus {
+  outline: 0;
+}

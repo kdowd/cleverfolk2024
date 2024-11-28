@@ -1,0 +1,34 @@
+body {
+  background-color: var(--site-background-colour);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // maybe
+  // min-height: 100dvh;
+  min-height: 100svh;
+  margin: 0;
+  padding-left: var(--desktop-menu-width, 440px);
+}
+
+main {
+  flex: 1;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  // background-color: red; /* Something to get the user's attention */
+  outline: 1px solid var(--focus-colour-outline);
+  background-color: var(--focus-colour-bg);
+  color: var(--focus-colour);
+}
+
+.entry-title {
+  text-align: left;
+}
+
+hr {
+  width: 50%;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.13);
+  margin: 40px auto;
+}

@@ -1,0 +1,29 @@
+.categories-holder {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.categories-dropdown-wrapper {
+  margin: 1rem 0 0 0;
+
+  .select {
+    min-width: 20ch;
+    max-width: 30ch;
+
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+
+    // Optional styles
+    // remove for transparency
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  }
+}

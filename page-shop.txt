@@ -1,0 +1,32 @@
+<?php
+
+    get_header(); ?>
+<!-- an order page -->
+<!-- https://cleverfolk.co.nz/checkout/order-received/189/?key=wc_order_NjHTbXj19RCOy -->
+<!-- https://wp-kama.com/plugin/woocommerce/function -->
+<!-- https://woocommerce.com/documentation/plugins/woocommerce/getting-started/ -->
+
+
+
+<div class="shop-content-first-element page-<?= $post->ID  ?>">
+    <div class="testy" style="width:50vw; margin:auto;">
+        <?php if ( is_active_sidebar( 'woo-filter' ) ) : ?>
+        <?php dynamic_sidebar( 'woo-filter' ); ?>
+        <?php endif; ?>
+
+
+        <?php if ( is_active_sidebar( 'woo-all-products' ) ) : ?>
+        <?php dynamic_sidebar( 'woo-all-products' ); ?>
+        <?php endif; ?>
+
+    </div>
+
+    <hr>
+
+
+</div>
+
+
+
+
+<?php get_footer(); ?>

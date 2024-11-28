@@ -1,0 +1,289 @@
+
+object(WC_Product_Variable)#4360 (16) {
+    ["id":protected] = int() 51
+    ["data":protected] = array(51) {
+        [name] = string(35) "Argentina 1986 Retro Football Shirt"
+        [slug] = string(35) "argentina-1986-retro-football-shirt"
+        [date_created] = object(WC_DateTime)#4391 (4) {
+            ["utc_offset":protected] = int() 0
+            [date] = string(26) "2024-11-13 02:39:49.000000"
+            [timezone_type] = int() 1
+            [timezone] = string(6) "+00:00"
+        }
+        [date_modified] = object(WC_DateTime)#4403 (4) {
+            ["utc_offset":protected] = int() 0
+            [date] = string(26) "2024-11-15 08:56:44.000000"
+            [timezone_type] = int() 1
+            [timezone] = string(6) "+00:00"
+        }
+        [status] = string(7) "publish"
+        [featured] = bool(false)
+        [catalog_visibility] = string(7) "visible"
+        [description] = string(392) "
+
+
+     	
+    Argentina retro football shirt
+
+     	
+    Winner of World Cup 1986 in Mexico, Argentina-West Germany 3-2
+
+     	
+    Notable players: Almirón, Batista, Bochini, Borghi, Brown, Burruchaga, Clausen, Cuciuffo, Garré, Giusti, Henrique, Islas, Maradona, Olarticoechea, Pasculli, Passarella, Pumpido, Ruggeri, Tapia, Trobbiani, Valdano
+
+     	
+    Manager: Carlos Bilardo
+
+"
+        [short_description] = string(0) ""
+        [sku] = string(0) ""
+        [global_unique_id] = string(0) ""
+        [price] = string(4) "60.0"
+        [regular_price] = string(0) ""
+        [sale_price] = string(0) ""
+        [date_on_sale_from] = NULL
+        [date_on_sale_to] = NULL
+        [total_sales] = int() 0
+        [tax_status] = string(7) "taxable"
+        [tax_class] = string(0) ""
+        [manage_stock] = bool(false)
+        [stock_quantity] = NULL
+        [stock_status] = string(7) "instock"
+        [backorders] = string(2) "no"
+        [low_stock_amount] = string(0) ""
+        [sold_individually] = bool(false)
+        [weight] = string(0) ""
+        [length] = string(0) ""
+        [width] = string(0) ""
+        [height] = string(0) ""
+        [upsell_ids] = array(0) {
+        }
+        [cross_sell_ids] = array(0) {
+        }
+        [parent_id] = int() 0
+        [reviews_allowed] = bool(true)
+        [purchase_note] = string(0) ""
+        [attributes] = array(1) {
+            [size] = object(WC_Product_Attribute)#4397 (1) {
+                ["data":protected] = array(6) {
+                    [id] = int() 0
+                    [name] = string(4) "Size"
+                    [options] = array(6) {
+                        [0] = string(2) "XS"
+                        [1] = string(1) "S"
+                        [2] = string(1) "M"
+                        [3] = string(1) "L"
+                        [4] = string(2) "XL"
+                        [5] = string(3) "XXL"
+                    }
+                    [position] = int() 0
+                    [visible] = bool(true)
+                    [variation] = bool(true)
+                }
+            }
+        }
+        [default_attributes] = array(1) {
+            [size] = string(1) "M"
+        }
+        [menu_order] = int() 0
+        [post_password] = string(0) ""
+        [virtual] = bool(false)
+        [downloadable] = bool(false)
+        [category_ids] = array(1) {
+            [0] = int() 18
+        }
+        [tag_ids] = array(0) {
+        }
+        [shipping_class_id] = int() 0
+        [downloads] = array(0) {
+        }
+        [image_id] = string(2) "34"
+        [gallery_image_ids] = array(0) {
+        }
+        [download_limit] = int(-1)
+        [download_expiry] = int(-1)
+        [rating_counts] = array(0) {
+        }
+        [average_rating] = string(1) "0"
+        [review_count] = int() 0
+    }
+    ["changes":protected] = array(0) {
+    }
+    ["object_read":protected] = bool(true)
+    ["object_type":protected] = string(7) "product"
+    ["extra_data":protected] = array(0) {
+    }
+    ["default_data":protected] = array(51) {
+        [name] = string(0) ""
+        [slug] = string(0) ""
+        [date_created] = NULL
+        [date_modified] = NULL
+        [status] = bool(false)
+        [featured] = bool(false)
+        [catalog_visibility] = string(7) "visible"
+        [description] = string(0) ""
+        [short_description] = string(0) ""
+        [sku] = string(0) ""
+        [global_unique_id] = string(0) ""
+        [price] = string(0) ""
+        [regular_price] = string(0) ""
+        [sale_price] = string(0) ""
+        [date_on_sale_from] = NULL
+        [date_on_sale_to] = NULL
+        [total_sales] = string(1) "0"
+        [tax_status] = string(7) "taxable"
+        [tax_class] = string(0) ""
+        [manage_stock] = bool(false)
+        [stock_quantity] = NULL
+        [stock_status] = string(7) "instock"
+        [backorders] = string(2) "no"
+        [low_stock_amount] = string(0) ""
+        [sold_individually] = bool(false)
+        [weight] = string(0) ""
+        [length] = string(0) ""
+        [width] = string(0) ""
+        [height] = string(0) ""
+        [upsell_ids] = array(0) {
+        }
+        [cross_sell_ids] = array(0) {
+        }
+        [parent_id] = int() 0
+        [reviews_allowed] = bool(true)
+        [purchase_note] = string(0) ""
+        [attributes] = array(0) {
+        }
+        [default_attributes] = array(0) {
+        }
+        [menu_order] = int() 0
+        [post_password] = string(0) ""
+        [virtual] = bool(false)
+        [downloadable] = bool(false)
+        [category_ids] = array(0) {
+        }
+        [tag_ids] = array(0) {
+        }
+        [shipping_class_id] = int() 0
+        [downloads] = array(0) {
+        }
+        [image_id] = string(0) ""
+        [gallery_image_ids] = array(0) {
+        }
+        [download_limit] = int(-1)
+        [download_expiry] = int(-1)
+        [rating_counts] = array(0) {
+        }
+        [average_rating] = int() 0
+        [review_count] = int() 0
+    }
+    ["data_store":protected] = object(WC_Data_Store)#4389 (4) {
+        ["instance":"WC_Data_Store":private] = object(WC_Product_Variable_Data_Store_CPT)#4390 (7) {
+            ["meta_type":protected] = string(4) "post"
+            ["object_id_field_for_meta":protected] = string(0) ""
+            ["internal_meta_keys":protected] = array(43) {
+                [0] = string(11) "_visibility"
+                [1] = string(4) "_sku"
+                [2] = string(17) "_global_unique_id"
+                [3] = string(6) "_price"
+                [4] = string(14) "_regular_price"
+                [5] = string(11) "_sale_price"
+                [6] = string(22) "_sale_price_dates_from"
+                [7] = string(20) "_sale_price_dates_to"
+                [8] = string(11) "total_sales"
+                [9] = string(11) "_tax_status"
+                [10] = string(10) "_tax_class"
+                [11] = string(13) "_manage_stock"
+                [12] = string(6) "_stock"
+                [13] = string(13) "_stock_status"
+                [14] = string(11) "_backorders"
+                [15] = string(17) "_low_stock_amount"
+                [16] = string(18) "_sold_individually"
+                [17] = string(7) "_weight"
+                [18] = string(7) "_length"
+                [19] = string(6) "_width"
+                [20] = string(7) "_height"
+                [21] = string(11) "_upsell_ids"
+                [22] = string(14) "_crosssell_ids"
+                [23] = string(14) "_purchase_note"
+                [24] = string(19) "_default_attributes"
+                [25] = string(19) "_product_attributes"
+                [26] = string(8) "_virtual"
+                [27] = string(13) "_downloadable"
+                [28] = string(15) "_download_limit"
+                [29] = string(16) "_download_expiry"
+                [30] = string(9) "_featured"
+                [31] = string(19) "_downloadable_files"
+                [32] = string(16) "_wc_rating_count"
+                [33] = string(18) "_wc_average_rating"
+                [34] = string(16) "_wc_review_count"
+                [35] = string(22) "_variation_description"
+                [36] = string(13) "_thumbnail_id"
+                [37] = string(11) "_file_paths"
+                [38] = string(22) "_product_image_gallery"
+                [39] = string(16) "_product_version"
+                [40] = string(12) "_wp_old_slug"
+                [41] = string(10) "_edit_last"
+                [42] = string(10) "_edit_lock"
+            }
+            ["must_exist_meta_keys":protected] = array(1) {
+                [0] = string(10) "_tax_class"
+            }
+            ["extra_data_saved":protected] = bool(false)
+            ["updated_props":protected] = array(0) {
+            }
+            ["prices_array":protected] = array(0) {
+            }
+        }
+        ["stores":"WC_Data_Store":private] = array(38) {
+            [coupon] = string(24) "WC_Coupon_Data_Store_CPT"
+            [customer] = string(22) "WC_Customer_Data_Store"
+            [customer-download] = string(31) "WC_Customer_Download_Data_Store"
+            [customer-download-log] = string(35) "WC_Customer_Download_Log_Data_Store"
+            [customer-session] = string(30) "WC_Customer_Data_Store_Session"
+            [order] = string(23) "WC_Order_Data_Store_CPT"
+            [order-refund] = string(30) "WC_Order_Refund_Data_Store_CPT"
+            [order-item] = string(24) "WC_Order_Item_Data_Store"
+            [order-item-coupon] = string(31) "WC_Order_Item_Coupon_Data_Store"
+            [order-item-fee] = string(28) "WC_Order_Item_Fee_Data_Store"
+            [order-item-product] = string(32) "WC_Order_Item_Product_Data_Store"
+            [order-item-shipping] = string(33) "WC_Order_Item_Shipping_Data_Store"
+            [order-item-tax] = string(28) "WC_Order_Item_Tax_Data_Store"
+            [payment-token] = string(27) "WC_Payment_Token_Data_Store"
+            [product] = string(25) "WC_Product_Data_Store_CPT"
+            [product-grouped] = string(33) "WC_Product_Grouped_Data_Store_CPT"
+            [product-variable] = string(34) "WC_Product_Variable_Data_Store_CPT"
+            [product-variation] = string(35) "WC_Product_Variation_Data_Store_CPT"
+            [shipping-zone] = string(27) "WC_Shipping_Zone_Data_Store"
+            [webhook] = string(21) "WC_Webhook_Data_Store"
+            [report-revenue-stats] = string(63) "Automattic\WooCommerce\Admin\API\Reports\Orders\Stats\DataStore"
+            [report-orders] = string(57) "Automattic\WooCommerce\Admin\API\Reports\Orders\DataStore"
+            [report-orders-stats] = string(63) "Automattic\WooCommerce\Admin\API\Reports\Orders\Stats\DataStore"
+            [report-products] = string(59) "Automattic\WooCommerce\Admin\API\Reports\Products\DataStore"
+            [report-variations] = string(61) "Automattic\WooCommerce\Admin\API\Reports\Variations\DataStore"
+            [report-products-stats] = string(65) "Automattic\WooCommerce\Admin\API\Reports\Products\Stats\DataStore"
+            [report-variations-stats] = string(67) "Automattic\WooCommerce\Admin\API\Reports\Variations\Stats\DataStore"
+            [report-categories] = string(61) "Automattic\WooCommerce\Admin\API\Reports\Categories\DataStore"
+            [report-taxes] = string(56) "Automattic\WooCommerce\Admin\API\Reports\Taxes\DataStore"
+            [report-taxes-stats] = string(62) "Automattic\WooCommerce\Admin\API\Reports\Taxes\Stats\DataStore"
+            [report-coupons] = string(58) "Automattic\WooCommerce\Admin\API\Reports\Coupons\DataStore"
+            [report-coupons-stats] = string(64) "Automattic\WooCommerce\Admin\API\Reports\Coupons\Stats\DataStore"
+            [report-downloads] = string(60) "Automattic\WooCommerce\Admin\API\Reports\Downloads\DataStore"
+            [report-downloads-stats] = string(66) "Automattic\WooCommerce\Admin\API\Reports\Downloads\Stats\DataStore"
+            [admin-note] = string(44) "Automattic\WooCommerce\Admin\Notes\DataStore"
+            [report-customers] = string(60) "Automattic\WooCommerce\Admin\API\Reports\Customers\DataStore"
+            [report-customers-stats] = string(66) "Automattic\WooCommerce\Admin\API\Reports\Customers\Stats\DataStore"
+            [report-stock-stats] = string(62) "Automattic\WooCommerce\Admin\API\Reports\Stock\Stats\DataStore"
+        }
+        ["current_class_name":"WC_Data_Store":private] = string(34) "WC_Product_Variable_Data_Store_CPT"
+        ["object_type":"WC_Data_Store":private] = string(16) "product-variable"
+    }
+    ["cache_group":protected] = string(8) "products"
+    ["meta_data":protected] = NULL
+    ["legacy_datastore_props":protected] = array(0) {
+    }
+    ["post_type":protected] = string(7) "product"
+    ["supports":protected] = array(0) {
+    }
+    ["children":protected] = NULL
+    ["visible_children":protected] = NULL
+    ["variation_attributes":protected] = NULL
+}

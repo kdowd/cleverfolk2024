@@ -1,0 +1,235 @@
+.site-header {
+  background: #121212;
+  color: #fff;
+  margin: 0 auto 0 auto;
+  padding: 80px 50px 144px 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: var(--desktop-menu-width, 340px);
+  z-index: 100;
+}
+
+.same-custom-bgs .site-header,
+.white-bg .site-header {
+  border-right: 1px solid rgba(0, 0, 4, 0.075);
+}
+
+.site-header a {
+  color: #fff;
+}
+
+.dark .site-header,
+.dark .site-header a {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.site-title,
+.site-description {
+  line-height: 1.25;
+}
+
+.site-title {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+.site-title a {
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+}
+
+.site-title svg {
+  font-size: 2.2rem;
+}
+
+.site-title a:hover {
+  border-bottom-color: #fff;
+}
+
+.dark .site-title a:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.9);
+}
+
+.site-description {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.dark .site-description {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.nav-toggle {
+  cursor: pointer;
+  position: relative;
+  background-color: aqua;
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
+}
+
+// this is so the nav-toggle gets those pointer events
+.nav-toggle:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: -35px;
+  right: -10px;
+  top: -16px;
+  // background-color: red;
+}
+
+.nav-toggle .bar {
+  background: #fff;
+  display: block;
+  height: 1px;
+  margin-top: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in 0s, margin 0.2s ease-out 0.2s;
+  width: 28px;
+  z-index: 1;
+}
+
+.dark .nav-toggle .bar {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.nav-toggle .bar:nth-child(1) {
+  margin-top: -5px;
+}
+.nav-toggle .bar:nth-child(2) {
+  margin-top: 3px;
+}
+
+.nav-toggle .bar:nth-child(3) {
+  margin-top: 11px;
+}
+
+.nav-toggle.active .bar {
+  transition: margin 0.2s ease-in, transform 0.2s ease-out 0.25s;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+  margin-top: -1px;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+  margin-top: -1px;
+  transform: rotate(-45deg);
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+  opacity: 0;
+}
+
+.menu-widgets-area {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  border-bottom: 1px solid snow;
+  border-top: 1px solid snow;
+  padding: 0.66rem 0;
+}
+
+.social-menu.desktop {
+  padding: 0;
+  position: static;
+  bottom: unset;
+  left: unset;
+  right: unset;
+}
+
+.woocommerce-notices-wrapper {
+  width: 29vw;
+  float: right;
+  display: flow-root;
+  margin: 0.15rem;
+}
+
+.woocommerce-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#override .button.wc-forward {
+  background-color: snow;
+  color: var(--site-colour-primary-dark);
+}
+.triangle {
+  width: 172px;
+  height: 172px;
+  background: red linear-gradient(#121212, #121212);
+  clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
+  margin: 0.15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+
+  h4 {
+    text-align: center;
+    transform-origin: center;
+    transform: rotate(-45deg);
+    color: snow;
+    margin: 0;
+    font-size: 1.25rem;
+    text-wrap: balance;
+    padding-bottom: 50%;
+    white-space-collapse: collapse;
+    width: 12ch;
+  }
+}
+
+.up-arrow {
+  width: 0;
+  height: 0;
+  border-left: 0px solid rgba(0, 0, 0, 0);
+  border-right: 132px solid rgba(0, 0, 0, 0);
+  border-top: 120px solid #121212;
+  margin: 0.15rem;
+
+  h4 {
+    display: block;
+    // transform-origin: left;
+    // transform: rotate(-42deg) translate(80%) translateY(-100%);
+    color: snow;
+    background-color: red;
+  }
+}
+
+.down-arrow {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+
+  border-top: 50px solid green;
+
+  margin: 2rem;
+}

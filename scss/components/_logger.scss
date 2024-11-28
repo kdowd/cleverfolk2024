@@ -1,0 +1,44 @@
+#bsdLogger {
+  counter-reset: section;
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-left: 4px solid #bbb;
+  padding: 4rem 0.5% 6rem;
+  background-color: rgba(1, 1, 1, 0.4);
+  color: #121212;
+  z-index: 999;
+  font-size: 0.75rem;
+  width: 380px;
+
+  height: 80dvh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  user-select: text;
+}
+
+#bsdLogger:hover {
+  width: fit-content;
+}
+
+#bsdLogger pre {
+  font-size: 12px;
+  background-color: rgba(1, 1, 1, 0.4);
+  color: dodgerblue;
+  border: 1px dotted slategray;
+  white-space: pre-line;
+  overflow-x: auto;
+}
+
+#bsdLogger pre:hover,
+#bsdLogger pre:focus {
+  width: fit-content;
+  cursor: text;
+}
+
+#bsdLogger pre::before {
+  counter-increment: section;
+  content: "Item " counter(section) ": ";
+  color: crimson;
+  font-weight: bold;
+}
