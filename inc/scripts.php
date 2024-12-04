@@ -66,11 +66,11 @@ function generic_contact_form()
         return;
     }
 
-
-
-    if (get_queried_object()->post_name == "about") {
-        wp_register_script("contact-form-script", CODE_BASE . '/assets/js/contact-form.js', array(), false, true);
+ wp_register_script("contact-form-script", CODE_BASE . '/assets/js/contact-form.js', array(), false, true);
         #wp_localize_script('contact-form-script', 'genericContactForm', array('formBaseURL' => admin_url('admin-ajax.php')));
         wp_enqueue_script('contact-form-script');
+
+    if (get_queried_object()->post_name == "about") {
+       
     }
 }

@@ -37,8 +37,10 @@
      if ( have_posts() ) :
         while ( have_posts() ) : the_post();
         the_content();
-        endwhile;
+        endwhile; 
+       
     endif;
+   
     ?>
     <hr />
     <?php echo do_shortcode('[related_products limit="3" columns="2" orderby="price" ]'); ?>

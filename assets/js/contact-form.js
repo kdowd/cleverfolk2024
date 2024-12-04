@@ -2,6 +2,8 @@
 //   console.log("form base = ", genericContactForm.formBaseURL);
 // }
 
+console.log("form js loaded");
+
 function generic_form_send(evt) {
   evt.preventDefault();
   let form = evt.target;

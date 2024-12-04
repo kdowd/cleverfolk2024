@@ -13,7 +13,7 @@ logger( WC()->session->get( 'useful_var' ) );
 <div class="div-content-first-element page-<?= $post->ID  ?>">
     <hr>
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <?php the_content() ?>
+    <?php the_content(); ?>
     <?php endwhile; ?>
     <?php endif; ?>
 

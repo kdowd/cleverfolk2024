@@ -1,5 +1,14 @@
 <?php
 
+// all the hooks and filter here:
+//https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/includes/wc-template-functions.php
+
+// and human readable here:
+//https://wp-kama.com/handbook/cheatsheet
+// https://wp-kama.com/plugin/woocommerce/hook - all hooks AND filters of 9.4 WOW
+
+
+
 // https://stripe.com/docs/testing#cards
 // https://passwordprotectwp.com/submit-websites-to-search-engines/
 // https://passwordprotectwp.com/how-to-index-your-page-on-search-engine/
@@ -410,7 +419,7 @@ add_action('query_vars' , function($vars){
 
 
 
-add_filter ('add_to_cart_redirect', 'redirect_to_checkout');
+add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
 function redirect_to_checkout() {
 	 
     
@@ -421,12 +430,6 @@ function redirect_to_checkout() {
     }
     return $checkout_url;
 }
-
-
-// hooks/filters
-//https://adambrown.info/p/wp_hooks/hook
-
-
 
 
 
@@ -521,3 +524,238 @@ function testing7($val){
 
 //     return method_exists( $product, 'get_dimensions' ) ? wc_format_dimensions($product->get_dimensions(false)) : '';
 // }
+
+
+
+// works
+#add_action( 'woocommerce_before_shop_loop', function() {} );
+
+add_action( 'woocommerce_before_add_to_cart_form', 'add_size_guide' );
+function add_size_guide() {
+    // global $product;
+        echo '<a class="button primary" style="background-color:#000; color:snow;" target="_blank" href="https://myurls.bio/learn_alwayss">Size Guide</a>';  
+}
+
+//works
+add_action( 'woocommerce_after_add_to_cart_form', 'add_warning' );
+function add_warning() {
+        //echo '<p>Select your size before adding to cart</p>';  
+}
+
+
+add_action('woocommerce_after_variations_table', function($args){
+	?>
+<div>
+    <details>
+        <summary>Measurements Guide:</summary>
+        <table class="table" style="table-layout:fixed">
+            <thead>
+                <tr>
+                    <th> Size</th>
+                    <th> Chest CM </th>
+                    <th> Chest Inches </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>XS</td>
+                    <td>45</td>
+                    <td>18,0</td>
+
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>48</td>
+                    <td>19,2</td>
+
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>51</td>
+                    <td>20,4</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>54</td>
+                    <td>21,6</td>
+                </tr>
+
+                <tr>
+                    <td>XL</td>
+                    <td>57</td>
+                    <td>22,8</td>
+
+                </tr>
+
+                <tr>
+                    <td>XXL</td>
+                    <td>60</td>
+                    <td>24,0</td>
+                </tr>
+
+
+
+
+            </tbody>
+
+        </table>
+    </details>
+</div>
+<?php
+	
+} );
+ 
+
+//apply_filters( 'woocommerce_form_field', $field, $key, $args, $value );
+
+// function wc_dropdown_variation_attribute_options( $args = array() ) {
+// 		$args = wp_parse_args(
+// 			apply_filters( 'woocommerce_dropdown_variation_attribute_options_args', $args ),
+// 			array(
+// 				'options'          => false,
+// 				'attribute'        => false,
+// 				'product'          => false,
+// 				'selected'         => false,
+// 				'required'         => false,
+// 				'name'             => '',
+// 				'id'               => '',
+// 				'class'            => '',
+// 				'show_option_none' => __( 'Choose an option', 'woocommerce' ),
+// 			)
+// 		);
+
+
+//works
+add_action('woocommerce_dropdown_variation_attribute_options_args', function($args){
+	//QM::debug($args);
+	return $args;
+});
+
+
+// this is pretty clever - adds in hooks or filters to any rendered block
+// the woo cart in this instance
+// from https://www.businessbloomer.com/woocommerce-visual-hook-guide-cart-block/
+#add_filter( 'render_block', 'append_hooks_to_cart_actions', 9999, 2 );
+
+
+function append_hooks_to_cart_actions( $block_content, $block ) {
+	//QM::debug($block['blockName']);
+	return $block_content;
+   $blocks = array(
+      'woocommerce/cart',
+      'woocommerce/filled-cart-block',
+      'woocommerce/cart-items-block',
+      'woocommerce/cart-line-items-block',
+      'woocommerce/cart-cross-sells-block',
+      'woocommerce/cart-cross-sells-products-block',
+      'woocommerce/cart-totals-block',
+      'woocommerce/cart-order-summary-block',
+      'woocommerce/cart-order-summary-heading-block',
+      'woocommerce/cart-order-summary-coupon-form-block',
+      'woocommerce/cart-order-summary-subtotal-block',
+      'woocommerce/cart-order-summary-fee-block',
+      'woocommerce/cart-order-summary-discount-block',
+      'woocommerce/cart-order-summary-shipping-block',
+      'woocommerce/cart-order-summary-taxes-block',
+      'woocommerce/cart-express-payment-block',
+      'woocommerce/proceed-to-checkout-block',
+      'woocommerce/cart-accepted-payment-methods-block',
+   );
+
+   if ( in_array( $block['blockName'], $blocks ) ) {
+      ob_start();
+	  apply_filters( 'woo_block_before_' . $block['blockName'] , $block_content );
+      do_action( 'woo_block_before_' . $block['blockName'] , $block_content );
+	  QM::debug($block['blockName']);
+	  echo $block_content;
+      do_action( 'woo_block_after_' . $block['blockName'] );
+      $block_content = ob_get_contents();
+	  ob_end_clean();
+   }
+   return $block_content;
+}
+
+// is called but its not a true filter i dont think
+// based upon function above adding the hook
+add_filter('woo_block_before_woocommerce/proceed-to-checkout-block', function(&$a){
+		QM::debug(gettype($a));
+       return $a;
+});
+
+
+function product_tabs_callback($a, $b){
+	echo do_shortcode('[generic_inline_form]');
+}
+
+add_filter('woocommerce_product_tabs', 
+function($tabs){
+	$tabs['send_product_message'] = array(
+        'title'     => __( 'Send Message', 'woocommerce' ),
+        'priority'  => 120,
+        'callback'  => 'product_tabs_callback'
+    );
+	return $tabs;
+}
+);
+
+
+add_filter('woocommerce_order_item_quantity_html', 
+function($a){
+	QM::debug("cccc");
+},100
+);
+ 
+
+/*
+// Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	QM:debug(66666);
+	// ob_start();
+	// WC()->cart->get_cart_total()
+	// WC()->cart->get_cart_contents_count()
+	// wc_get_cart_url()
+	// ob_get_clean();
+	
+	return $fragments;
+}
+
+*/
+
+ 
+ 
+#add_action('wc_get_template', function($a){QM::debug($a);return $a;} );
+
+// and this is clever also - 2 functions
+// "proceed_to_checkout" is the button at the bottom of the cart page
+// this doesn't fire AFAICT
+#add_action( 'render_block', 'bbloomer_empty_cart_button_and_listener', 20 );
+ 
+function bbloomer_empty_cart_button_and_listener() {
+	
+   // IF YOU ARE USING THE CART BLOCK, REMOVE THE FOLLOWING LINE
+   // AND ADD A BUTTON WITH THE "empty-button" CLASS INSTEAD
+//    echo '<a role="button" class="empty-button">Empty Cart</a>';
+
+   echo '<button class="empty-button">Empty Cart</button>';
+ 
+   wc_enqueue_js( "
+      $('.empty-button').click(function(e){
+         e.preventDefault();
+            $.post( '" . '/wp-admin/admin-ajax.php' . "', { action: 'empty_cart' }, function() {
+            location.reload();
+         });
+        });
+   " );
+}
+ 
+add_action( 'wp_ajax_empty_cart', 'bbloomer_empty_cart' );
+add_action( 'wp_ajax_nopriv_empty_cart', 'bbloomer_empty_cart' );
+  
+function bbloomer_empty_cart() { 
+    WC()->cart->empty_cart();
+}
+	

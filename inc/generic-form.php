@@ -26,11 +26,11 @@ function create_inline_mailchimp_form($atts = array())
          <input type='hidden' name='nonce' value={$nonce}>
         </div>
         <label for='user-email'>Email <span class='required-star'>*</span></label>
-        <input type='email' name='user-email' id='user-email' required placeholder='your email, so we can reply...'>
-        <input type='text' name='user-order-id' id='user-order-id' placeholder='order ID, optional.' >
+        <input type='email' name='user-email' id='user-email' required placeholder='Your email, so we can reply...'>
+        <input type='text' name='user-order-id' id='user-order-id' placeholder='Order ID or name.' >
  
         <label for='user-message'>Message <span class='required-star'>*</span></label>
-        <textarea name='user-message' id='user-message' cols='30' rows='10' required placeholder='your message...'></textarea>
+        <textarea name='user-message' id='user-message' cols='30' rows='10' required placeholder='Your message...'></textarea>
        
         <div class='success-message' style='display:none;'>
         <p>Thanks for messaging !<br>We'll be in touch soon.</p>

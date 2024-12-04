@@ -7,3 +7,16 @@
   display: flex;
   justify-content: flex-end;
 }
+
+div.cfvsw-swatches-container {
+  padding-left: 0.66rem;
+  padding-right: 0.66rem;
+}
+
+table.variations {
+  .label {
+    line-height: 0;
+    padding: 0;
+    padding-left: 0.66rem;
+  }
+}

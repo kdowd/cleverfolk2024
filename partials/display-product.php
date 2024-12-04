@@ -7,8 +7,13 @@ $currency_symbol = get_woocommerce_currency_symbol("NZD");
 
 <ul class="products">
     <li class="categories-holder"> <?php get_template_part('partials/display-categories-dropdown');  ?> </li>
+    <?php #WC_Admin_Notices::add_notice( 'regenerating_lookup_table' );?>
+    <?php foreach ($args['results'] as $product): ?>
+    <!-- fuller stock details not on $product i think use this: -->
+    <?php #QM::debug(wc_get_product_stock_status_options()); ?>
+    <?php #QM::debug($product->get_stock_status()); ?>
+    <?php #QM::debug($product->get_low_stock_amount()); ?>
 
-    <?php foreach ($args['results'] as $product):?>
 
 
     <li>
@@ -17,11 +22,11 @@ $currency_symbol = get_woocommerce_currency_symbol("NZD");
                 <?php if ($product->is_on_sale()) : ?>
                 <h1 class="notices-item sale">SALE</h1>
                 <?php endif; ?>
-                <?php if (($product->stock_status == "instock") && ($product->stock_controlled) && ($product->quantity < $product->low_stock_amount)) : ?>
+                <?php if (($product->get_stock_status() == "instock") && ($product->get_low_stock_amount())) : ?>
                 <h1 class="notices-item low-stock">low stock</h1>
                 <?php endif; ?>
 
-                <?php if ($product->stock_status == "outofstock") : ?>
+                <?php if ($product->get_stock_status() == "outofstock") : ?>
                 <h1 class="notices-item no-stock">out of stock</h1>
                 <?php endif; ?>
             </div>

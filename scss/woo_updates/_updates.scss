@@ -31,12 +31,12 @@
 }
 
 .woocommerce-error::before {
-  content: "\e016";
+  content: '\e016';
   color: var(--site-colour-primary-dark);
 }
 
 .woocommerce-error::after {
-  content: "";
+  content: '';
   color: var(--site-colour-primary-dark);
 }
 
@@ -162,4 +162,13 @@
 
 #override .wc-block-mini-cart__badge {
   color: red;
+}
+
+#override .variations_form td {
+  padding-left: 1rem;
+}
+
+.variations_form details {
+  margin-bottom: 1.2rem;
+  cursor: pointer;
 }

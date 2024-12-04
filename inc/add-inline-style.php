@@ -28,4 +28,4 @@ function wd_inline_css() {
      wp_enqueue_style( 'wd-custom-inline-css' );
      
 }
-add_action( 'wp_enqueue_scripts', 'wd_inline_css' );
+#add_action( 'wp_enqueue_scripts', 'wd_inline_css' );

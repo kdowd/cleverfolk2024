@@ -1,6 +1,6 @@
 <div class="shop-content-first-element page-<?= $post->ID  ?>">
 
-    <h5 class="shop-title-with-cart">
+    <!-- <h5 class="shop-title-with-cart">
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em"
             xmlns="http://www.w3.org/2000/svg">
             <path
@@ -8,7 +8,7 @@
             </path>
         </svg>
         <span class="cart-tracker cart-tracker-hide">0</span>
-    </h5>
+    </h5> -->
 
 
     <hr>

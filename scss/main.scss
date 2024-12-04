@@ -16,7 +16,7 @@
 
 ul.products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 360px));
+  grid-template-columns: repeat(auto-fill, minmax(var(--product-card-min-width), var(--product-card-max-width)));
 
   place-items: center;
   place-content: center;
