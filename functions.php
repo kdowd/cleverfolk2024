@@ -685,8 +685,15 @@ add_filter('woo_block_before_woocommerce/proceed-to-checkout-block', function(&$
 });
 
 
-function product_tabs_callback($a, $b){
-	echo do_shortcode('[generic_inline_form]');
+function product_tabs_callback($slug, $tab){
+	$product_title = "";
+	
+	if ( !is_null(get_queried_object()) ){
+		$product_title = trim(get_queried_object()->post_title);
+		$product_title .= " query...";
+	}
+	 
+	echo do_shortcode("[generic_inline_form {$product_title}]");
 }
 
 add_filter('woocommerce_product_tabs', 
@@ -701,12 +708,7 @@ function($tabs){
 );
 
 
-add_filter('woocommerce_order_item_quantity_html', 
-function($a){
-	QM::debug("cccc");
-},100
-);
- 
+
 
 /*
 // Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)

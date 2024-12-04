@@ -4,14 +4,15 @@ if (!defined('GA_FORM_NONCE')) {
     define("GA_FORM_NONCE", "cleverfolk_2023");
 }
 
-function create_inline_mailchimp_form($atts = array())
+function create_inline_form($atts = array())
 {
-    extract(shortcode_atts(
-        array(
-            'page' => null,
-        ),
-        $atts
-    ));
+    extract(shortcode_atts(array(),$atts));
+
+
+    if (count($atts)) {
+        $productTitle = implode(" ",$atts);
+        // QM::debug($productTitle );
+    }
 
 
     $nonce = wp_create_nonce(GA_FORM_NONCE);
@@ -27,7 +28,7 @@ function create_inline_mailchimp_form($atts = array())
         </div>
         <label for='user-email'>Email <span class='required-star'>*</span></label>
         <input type='email' name='user-email' id='user-email' required placeholder='Your email, so we can reply...'>
-        <input type='text' name='user-order-id' id='user-order-id' placeholder='Order ID or name.' >
+        <input type='text' name='user-order-id' id='user-order-id' placeholder='Order ID or name.' value='{$productTitle}' >
  
         <label for='user-message'>Message <span class='required-star'>*</span></label>
         <textarea name='user-message' id='user-message' cols='30' rows='10' required placeholder='Your message...'></textarea>
@@ -51,4 +52,4 @@ function create_inline_mailchimp_form($atts = array())
 
     return $form;
 }
-add_shortcode("generic_inline_form", "create_inline_mailchimp_form");
+add_shortcode("generic_inline_form", "create_inline_form");
