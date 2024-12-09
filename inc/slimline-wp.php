@@ -7,6 +7,16 @@ function cleanup()
     // remove_action('wp_head', 'wp_generator');
 }
 
+// dash icons !
+function disable_dashicon() {
+  if (current_user_can( 'update_core' )) {
+      return;
+  }
+  wp_deregister_style('dashicons');
+}
+add_action( 'wp_enqueue_scripts', 'disable_dashicon' );
+
+
 add_action('init', 'cleanup');
 
 

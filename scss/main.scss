@@ -10,13 +10,22 @@
 }
 
 .woocommerce ul.products::before {
-  content: "";
+  content: '';
   display: none;
+}
+
+.related.products > ul {
+  display: block;
+}
+
+.related.products > ul .price > .amount {
+  color: black;
+  font-size: 1rem;
 }
 
 ul.products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--product-card-min-width), var(--product-card-max-width)));
+  grid-template-columns: repeat(auto-fit, minmax(var(--product-card-min-width), var(--product-card-max-width)));
 
   place-items: center;
   place-content: center;
@@ -25,9 +34,9 @@ ul.products {
   box-sizing: border-box;
   margin: auto 0;
   padding: 0 2rem;
-  column-gap: 2rem;
-  row-gap: 2.4rem;
-  width: 100%;
+  column-gap: 1.8rem;
+  row-gap: 1.8rem;
+  width: auto;
 
   .woocommerce-notices-wrapper {
     // display: none;

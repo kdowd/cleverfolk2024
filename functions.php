@@ -417,12 +417,17 @@ add_action('query_vars' , function($vars){
 });
 
 
+add_action('wp_head', function(){
+	get_template_part('partials/display-floating-cart-info'); 
+});
 
 
-add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
+
+
+
+// don't do this
+#add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
 function redirect_to_checkout() {
-	 
-    
     $checkout_url = WC()->cart->get_checkout_url();
     if ( ! empty( $_REQUEST['username'] ) ) {
         $thename = $_REQUEST['username'];
@@ -430,6 +435,24 @@ function redirect_to_checkout() {
     }
     return $checkout_url;
 }
+
+add_filter( 'woocommerce_add_to_cart_redirect', 'redirect_after_add_cart' );
+function redirect_after_add_cart($value ) {
+	// logger($value );
+	//wc_get_checkout_url();
+	//wc_get_relative_url( url );
+    return false;
+}
+
+
+//  jQuery(document).on('mouseenter', '.vi-wpvs-variation-wrap-option-available .vi-wpvs-option-wrap', function (e) {
+// 	if (!jQuery(this).hasClass('vi-wpvs-option-wrap-selected') && !jQuery(this).hasClass('vi-wpvs-option-wrap-disable') && !jQuery(this).hasClass('vi-wpvs-product-link')) {
+// 		jQuery(this).removeClass('vi-wpvs-option-wrap-default').addClass('vi-wpvs-option-wrap-hover');
+// 	}
+// }); 
+
+
+//jQuery(“[name=’update_cart’]”).trigger(“click”);
 
 
 
@@ -457,19 +480,13 @@ function redirect_to_checkout() {
 // } );
 
 // // works-ish
-#add_filter( 'woocommerce_add_to_cart_redirect', 'redirect_after_add_cart' );
+
 // nothing
 #add_filter( 'pre_option_woocommerce_cart_redirect_after_add', 'testing0', 20 );
 
 // add_filter( 'woocommerce_add_to_cart_validation', 'testing0', 10, 5 );  
- 
-function redirect_after_add_cart($value ) {
-	logger($value );
-	//wc_get_checkout_url();
-	//wc_get_relative_url( url );
-	 
-    return false;
-}
+
+
 
 function testing0($value){
 	return wc_get_checkout_url();
@@ -532,8 +549,7 @@ function testing7($val){
 
 add_action( 'woocommerce_before_add_to_cart_form', 'add_size_guide' );
 function add_size_guide() {
-    // global $product;
-        echo '<a class="button primary" style="background-color:#000; color:snow;" target="_blank" href="https://myurls.bio/learn_alwayss">Size Guide</a>';  
+	echo '<button class="button primary" style="background-color:#000; color:snow;">Select Size</button>';
 }
 
 //works
@@ -690,7 +706,8 @@ function product_tabs_callback($slug, $tab){
 	
 	if ( !is_null(get_queried_object()) ){
 		$product_title = trim(get_queried_object()->post_title);
-		$product_title .= " query...";
+		$pre = "Re: ";
+		$product_title = "{$pre}{$product_title }";
 	}
 	 
 	echo do_shortcode("[generic_inline_form {$product_title}]");

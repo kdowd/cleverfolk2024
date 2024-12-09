@@ -8,26 +8,24 @@
     <meta name="robots" content="index, follow, NOODP, noarchive, max-image-preview:large">
     <meta name="description" content="crafts">
     <meta name=" language" content="en_NZ">
-    <meta name="keywords" content="auckland craft, wax wraps">
+    <meta name="keywords" content="auckland, vintage, vintage football">
     <meta name="google-site-verification" content="AGQVsaemuT_BVUfe8370hAlLjKSeEcIMxxBoqTzpFdA">
 
     <link rel="icon" type="image/png" href="<?php echo CODE_BASE . '/assets/images/favicon.ico' ?>">
-
-    <link rel="canonical" href="https://cleverfolk.co.nz">
     <meta name="google-site-verification" content="AGQVsaemuT_BVUfe8370hAlLjKSeEcIMxxBoqTzpFdA">
 
 
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <?php wp_head(); ?>
-
 </head>
 
 <body id="override" <?php body_class(); ?>>
 
     <?php wp_body_open(); ?>
 
-    <?php do_action('get-toast-ui') ?>
+    <!-- variations don't use ajax -->
+    <?php #do_action('get-toast-ui') ?>
 
     <header class="site-header group">
 
@@ -45,6 +43,8 @@
             </a>
         </p>
 
+
+
         <?php if (get_bloginfo('description')) : ?>
 
         <div class="site-description"><?php echo wpautop(get_bloginfo('description')); ?></div>
@@ -53,13 +53,7 @@
 
 
         <div class="menu-widgets-area">
-            <?php if (is_active_sidebar('Mini Cart')) : ?>
-            <div id="secondary-sidebar" class="new-widget-area">
-                <?php echo do_shortcode('[xoo_wsc_cart]') ?>
-
-                <?php #dynamic_sidebar('Mini Cart'); ?>
-            </div>
-            <?php endif; ?>
+            <?php echo get_template_part( 'partials/display-cart-in-menu'); ?>
             <?php if (has_nav_menu('social-menu') || (!get_theme_mod('mcluhan_hide_social') || is_customize_preview())) : ?>
             <div class="social-menu desktop">
                 <ul class="social-menu-inner">

@@ -6,7 +6,7 @@ add_action('new-get-custom-products', 'new_custom_products_callback', 10, 2);
 
 function new_custom_products_callback($count = -1)
 {
-	//wc_clear_notices();
+	wc_clear_notices();
     // add_wc_notices_div();
    
     $args = array('limit' => $count, 'orderby' => 'date');

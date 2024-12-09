@@ -70,6 +70,9 @@
 #override .woocommerce-info {
   border-top-color: var(--site-colour-primary-dark);
   border-radius: 4px;
+  display: inline-flex;
+  float: right;
+  gap: 1rem;
 }
 
 #override .button.wc-backward,

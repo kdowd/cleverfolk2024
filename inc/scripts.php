@@ -25,15 +25,12 @@ function load_site_scripts()
         return;
     }
 
-
-
-
    // if (is_cart() || is_shop() ) {
 
-        wp_enqueue_script('toast-widget', CODE_BASE . '/assets/js/toast-widget.js', array(), $CACHE_BUSTER);
+        //wp_enqueue_script('toast-widget', CODE_BASE . '/assets/js/toast-widget.js', array(), $CACHE_BUSTER);
    // }
 
-    // wp_enqueue_script('floating-widget', CODE_BASE . '/assets/js/floating-cart-widget.js', array(), $CACHE_BUSTER);
+ wp_enqueue_script('floating-widget', CODE_BASE . '/assets/js/floating-cart-widget.js', array(), $CACHE_BUSTER);
 
 
     //id 8  
@@ -45,9 +42,9 @@ function load_site_scripts()
 
 
     // id 6 = page-shop.php
-    if (get_queried_object()->post_name == "shop") {
+  //  if (get_queried_object()->post_name == "shop") {
         wp_enqueue_script('mutation-script', CODE_BASE . '/assets/js/order-mutation.js', array(), false, true);
-    }
+  //  }
 }
 
 

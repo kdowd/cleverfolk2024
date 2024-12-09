@@ -12,7 +12,7 @@
 
 <div class="stuff">
 
-    <?php do_action('new-get-custom-products'); ?>
+    <?php do_action('new-get-custom-products',-1); ?>
     <!-- end shop-content -->
 </div>
 

@@ -17,11 +17,11 @@ function getLocalStorageCart() {
 }
 
 function updateCartInfo() {
-  let cartTrackerElement = document.querySelector(".cart-tracker");
+  let cartTrackerElement = document.querySelector(".bubble");
 
   if (!!cartTrackerElement) {
     cartTrackerElement.innerText = getLocalStorageCart();
-    cartTrackerElement.classList.remove("cart-tracker-hide");
+    // cartTrackerElement.classList.remove("cart-tracker-hide");
   }
 }
 

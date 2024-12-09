@@ -6,7 +6,7 @@ if (!defined('GA_FORM_NONCE')) {
 
 function create_inline_form($atts = array())
 {
-    extract(shortcode_atts(array(),$atts));
+    // extract(shortcode_atts(array(),$atts));
 
 
     if (count($atts)) {
