@@ -418,6 +418,7 @@ add_action('query_vars' , function($vars){
 
 
 add_action('wp_head', function(){
+	if (is_checkout() || is_cart() ) return;
 	get_template_part('partials/display-floating-cart-info'); 
 });
 
@@ -444,32 +445,15 @@ function redirect_after_add_cart($value ) {
     return false;
 }
 
+ 
 
-//  jQuery(document).on('mouseenter', '.vi-wpvs-variation-wrap-option-available .vi-wpvs-option-wrap', function (e) {
-// 	if (!jQuery(this).hasClass('vi-wpvs-option-wrap-selected') && !jQuery(this).hasClass('vi-wpvs-option-wrap-disable') && !jQuery(this).hasClass('vi-wpvs-product-link')) {
-// 		jQuery(this).removeClass('vi-wpvs-option-wrap-default').addClass('vi-wpvs-option-wrap-hover');
-// 	}
-// }); 
-
-
-//jQuery(“[name=’update_cart’]”).trigger(“click”);
+ 
 
 
 
-// add_action( 'wc_ajax_xoo_wsc_update_item_quantity', 'testing1' );
+ 
 
-// add_action( 'wc_ajax_xoo_wsc_refresh_fragments', 'testing2');
-
-// add_filter( 'woocommerce_add_to_cart_fragments', 'testing3' );
-
-// add_filter( 'woocommerce_update_order_review_fragments', 'testing4');
-
-
-// add_action( 'wc_ajax_xoo_wsc_add_to_cart', 'testing5' );
-
-// // nothing
-// add_action( 'woocommerce_add_to_cart', 'testing6', 10, 6 );
-
+ 
 // // works-ish
 // add_filter( 'pre_option_woocommerce_cart_redirect_after_add', 'testing7', 20 );
 
@@ -481,44 +465,10 @@ function redirect_after_add_cart($value ) {
 
 // // works-ish
 
-// nothing
-#add_filter( 'pre_option_woocommerce_cart_redirect_after_add', 'testing0', 20 );
+ 
 
 // add_filter( 'woocommerce_add_to_cart_validation', 'testing0', 10, 5 );  
 
-
-
-function testing0($value){
-	return wc_get_checkout_url();
-}
-
-
-function testing1(){
-	logger(1111);
-}
-
-function testing2(){
-	logger(222);
-}
-
-function testing3(){
-	logger(333);
-}
-
-function testing4(){
-	logger(444);
-}
-function testing5(){
-	logger(555);
-}
-function testing6(){
-	logger(666);
-}
-function testing7($val){
-	logger($val);
-	// wc_empty_cart();
-	return $val;
-}
 
 
 
@@ -777,4 +727,62 @@ add_action( 'wp_ajax_nopriv_empty_cart', 'bbloomer_empty_cart' );
 function bbloomer_empty_cart() { 
     WC()->cart->empty_cart();
 }
-	
+
+
+function remove_image_zoom_support() {
+    remove_theme_support( 'wc-product-gallery-zoom' );
+	remove_theme_support( 'wc-product-gallery-lightbox' );
+}
+#add_action( 'after_setup_theme', 'remove_image_zoom_support', 100 );
+add_action( 'wp', 'remove_image_zoom_support', 100 );
+
+
+add_filter( 'woocommerce_breadcrumb_defaults', 'update_woocommerce_breadcrumbs' );
+function update_woocommerce_breadcrumbs() {
+    return array(
+            'delimiter'   => '&#160; &#47; &#160; ',
+            'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb">',
+            'wrap_after'  => '</nav>',
+            'before'      => '<span>',
+            'after'       => '</span>',
+            'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
+        );
+}
+
+
+/**
+ * Make price widget draggable on touch devices
+  
+add_action( 'wp_enqueue_scripts', 'load_touch_punch_js' , 35 );
+function load_touch_punch_js() {
+	global $version;
+
+	wp_enqueue_script( 'jquery-ui-widget' );
+	wp_enqueue_script( 'jquery-ui-mouse' );
+	wp_enqueue_script( 'jquery-ui-slider' );
+	wp_register_script( 'woo-jquery-touch-punch', get_stylesheet_directory_uri() . "/js/jquery.ui.touch-punch.min.js", array('jquery'), $version, true );
+	wp_enqueue_script( 'woo-jquery-touch-punch' );
+}
+*/
+
+
+/**
+ * Show cart contents / total Ajax
+  
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+<a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>"
+    title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?>
+    - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+<?php
+	$fragments['a.cart-customlocation'] = ob_get_clean();
+	return $fragments;
+}
+
+*/

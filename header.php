@@ -191,14 +191,18 @@
         <?php if (!is_search()) : ?>
         <?php 
         $theSlug = get_queried_object() == NULL ? "" : get_queried_object()->post_title; 
-
-        if (strlen($theSlug ) > 30) {
-            $theSlug  = substr($theSlug , 0, 28) . " ..." ;
+        $miniSlug = $theSlug;
+        
+        if (strlen($miniSlug) > 30) {
+            $miniSlug  = substr($miniSlug, 0, 28) . " ..." ;
         }
 
-        
         ?>
         <div class="triangle">
+            <h4> <?= $miniSlug ?></h4>
+        </div>
+
+        <div class="mobileTitle">
             <h4> <?= $theSlug ?></h4>
         </div>
         <?php endif ?>

@@ -70,9 +70,16 @@
 #override .woocommerce-info {
   border-top-color: var(--site-colour-primary-dark);
   border-radius: 4px;
-  display: inline-flex;
-  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
   gap: 1rem;
+  margin-left: auto;
+
+  @media (min-width: 768px) {
+    width: 48%;
+  }
 }
 
 #override .button.wc-backward,
@@ -163,8 +170,13 @@
   color: var(--site-colour-primary-dark) !important;
 }
 
+.wc-block-mini-cart__button,
+.wc-block-mini-cart {
+  cursor: pointer;
+}
+
 #override .wc-block-mini-cart__badge {
-  color: red;
+  color: rgb(136, 15, 15);
 }
 
 #override .variations_form td {
@@ -174,4 +186,19 @@
 .variations_form details {
   margin-bottom: 1.2rem;
   cursor: pointer;
+  summary {
+    font-size: 1.2rem;
+  }
+}
+
+.woocommerce-product-gallery__trigger {
+  display: none;
+}
+.product-gallery__image:hover {
+  cursor: default !important;
+  scale: unset;
+}
+
+li.widget.widget_block {
+  display: block;
 }

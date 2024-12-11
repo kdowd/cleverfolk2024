@@ -65,11 +65,11 @@ function get_query($count)
     return new WP_Query($args);
 }
 
-add_action('get-custom-products', 'custom_products_callback', 10, 2);
+#add_action('get-custom-products', 'custom_products_callback', 10, 2);
 
 function custom_products_callback($count = -1)
 {
-    // add_wc_notices_div();
+    add_wc_notices_div();
 
 ?>
 

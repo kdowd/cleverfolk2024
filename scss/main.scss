@@ -23,7 +23,13 @@
   font-size: 1rem;
 }
 
-ul.products {
+.related.products {
+  padding: 0 0.8rem;
+}
+
+// need to override some woo defaults here
+// make it a direct child BUT beware
+#site-content > ul.products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--product-card-min-width), var(--product-card-max-width)));
 
@@ -33,7 +39,7 @@ ul.products {
 
   box-sizing: border-box;
   margin: auto 0;
-  padding: 0 2rem;
+  padding: 0 1.4rem;
   column-gap: 1.8rem;
   row-gap: 1.8rem;
   width: auto;

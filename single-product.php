@@ -2,9 +2,6 @@
 
 
 
-
-
-
 <?php
 
 //https://www.vintagefootballclub.com/en/shop/argentina-1986-retro-football-shirt/
@@ -28,11 +25,11 @@
 <!-- //https://www.businessbloomer.com/class/1-hour-woocommerce-challenge-lets-recreate-the-nike-product-page/ -->
 <div class="single-product-wrapper">
     <?php if ( is_active_sidebar( 'woo-breadcrumb' ) ) : ?>
-    <?php #dynamic_sidebar( 'woo-breadcrumb' ); ?>
+    <?php dynamic_sidebar( 'woo-breadcrumb' ); ?>
     <?php endif; ?>
 
     <?php 
-     echo do_shortcode('[shop_messages]'); 
+    # echo do_shortcode('[shop_messages]'); 
 
      if ( have_posts() ) :
         while ( have_posts() ) : the_post();
@@ -42,9 +39,8 @@
     endif;
    
     ?>
-    <hr />
-    <?php echo do_shortcode('[related_products limit="3" columns="2" orderby="price" ]'); ?>
-
 </div>
-
+<hr />
+<?php #echo do_shortcode('[products limit="3" columns="3" category="football, rugby, cycling"  ]') ?>
+<?php echo do_shortcode('[related_products limit="3" columns="2" orderby="price" ]'); ?>
 <?php get_footer(); ?>

@@ -69,7 +69,6 @@ $currency_symbol = get_woocommerce_currency_symbol("NZD");
                     </div>
                 </div>
 
-                <hr />
 
                 <div class="cart-buttons-grid">
 

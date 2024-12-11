@@ -10,15 +10,14 @@ logger( WC()->session->get( 'useful_var' ) );
 <!-- https://wp-kama.com/plugin/woocommerce/function -->
 <!-- https://woocommerce.com/documentation/plugins/woocommerce/getting-started/ -->
 
-<div class="div-content-first-element page-<?= $post->ID  ?>">
-    <hr>
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <?php the_content(); ?>
-    <?php endwhile; ?>
-    <?php endif; ?>
 
-    <?php do_action('new-get-custom-products', 3); ?>
-</div>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php the_content(); ?>
+<?php endwhile; ?>
+<?php endif; ?>
+
+<?php do_action('new-get-custom-products', 3); ?>
+
 
 <?php #echo do_shortcode('[get-shortcode-list]')
 ?>

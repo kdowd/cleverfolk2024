@@ -4,7 +4,7 @@
 get_header(); ?>
 
 
-<?php get_template_part('partials/show-cart-icon'); ?>
+<?php #get_template_part('partials/show-cart-icon'); ?>
 
 <div class="entry-content section-inner">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

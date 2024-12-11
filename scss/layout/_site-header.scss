@@ -81,7 +81,7 @@
 
 // this is so the nav-toggle gets those pointer events
 .nav-toggle:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: -20px;
@@ -159,29 +159,37 @@
   right: unset;
 }
 
-.woocommerce-notices-wrapper {
-  width: 29vw;
-  float: right;
-  display: flow-root;
-  margin: 0.15rem;
-}
-
-.woocommerce-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 #override .button.wc-forward {
   background-color: snow;
   color: var(--site-colour-primary-dark);
 }
+
+.mobileTitle {
+  background-color: #121212;
+  text-align: center;
+  margin: 0.6rem;
+  border-radius: 4px;
+
+  h4 {
+    color: snow;
+    font-size: 1.6rem;
+    text-wrap: balance;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
 .triangle {
   width: 172px;
   height: 172px;
-  background: red linear-gradient(#121212, #121212);
+  background-color: #121212;
   clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
   margin: 0.15rem;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -203,6 +211,10 @@
     padding-bottom: 50%;
     white-space-collapse: collapse;
     width: 12ch;
+  }
+
+  @media screen and (min-width: 769px) {
+    display: flex;
   }
 }
 

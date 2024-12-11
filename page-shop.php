@@ -7,24 +7,9 @@
 <!-- https://woocommerce.com/documentation/plugins/woocommerce/getting-started/ -->
 
 
-
 <?php #do_action('get-custom-products'); ?>
 
-<div class="stuff">
-
-    <?php do_action('new-get-custom-products',-1); ?>
-    <!-- end shop-content -->
-</div>
-
+<?php do_action('new-get-custom-products',-1); ?>
 
 
 <?php get_footer(); ?>
-
-
-
-<!-- <div class="testy">
-    <?php if ( is_active_sidebar( 'woo-filter' ) ) : ?>
-    <?php dynamic_sidebar( 'woo-filter' ); ?>
-    <?php endif; ?>
-
-</div> -->
