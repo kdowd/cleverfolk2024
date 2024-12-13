@@ -42,5 +42,30 @@
 </div>
 <hr />
 <?php #echo do_shortcode('[products limit="3" columns="3" category="football, rugby, cycling"  ]') ?>
-<?php echo do_shortcode('[related_products limit="3" columns="2" orderby="price" ]'); ?>
+<?php #echo do_shortcode('[sale_products_test]'); ?>
+<?php #echo do_shortcode('[related_products limit="4" columns="4" orderby="price"]'); ?>
+
+<?php
+$categories = get_categories();
+$tempID =get_the_ID();
+$termsObj = get_the_terms( $tempID , 'product_cat');
+ 
+$args = array(
+    'post_type'   => 'product',
+    'post_status' => 'publish',
+    'posts_per_page' => 4,
+    'post__not_in'=> [$tempID ],
+    'tax_query' => [
+        [
+            'taxonomy' => $termsObj[0]->taxonomy,
+            'terms' => $termsObj[0]->term_id 
+        ]]
+ 
+);
+$the_query = new WP_Query($args);
+?>
+
+
+<?php get_template_part('partials/custom-related-products', null, array('items_to_display'=>4)); ?>
+
 <?php get_footer(); ?>

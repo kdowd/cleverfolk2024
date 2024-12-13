@@ -1,0 +1,31 @@
+.related-products-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+  place-content: start;
+  gap: 0.75rem;
+  margin-left: 2.2rem;
+
+  h2 {
+    grid-column: 1 / -1;
+  }
+
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: end start;
+
+    a:last-of-type {
+      width: fit-content;
+      margin: 0.25rem;
+    }
+
+    img {
+      border-radius: 4px;
+    }
+
+    > * {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+  }
+}

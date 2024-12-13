@@ -72,7 +72,8 @@
 .nav-toggle {
   cursor: pointer;
   position: relative;
-  background-color: aqua;
+  top: -0.15rem;
+  left: 0;
 
   @media (min-width: 1000px) {
     display: none;

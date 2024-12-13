@@ -17,7 +17,7 @@ function getLocalStorageCart() {
 }
 
 function updateCartInfo() {
-  let cartTrackerElement = document.querySelector(".bubble");
+  let cartTrackerElement = document.querySelector(".bubble > span");
 
   if (!!cartTrackerElement) {
     cartTrackerElement.innerText = getLocalStorageCart();

@@ -18,3 +18,7 @@ table.variations {
 .woocommerce-product-gallery__image {
   overflow: unset !important;
 }
+
+.woocommerce div.product div.images img {
+  border-radius: 4px;
+}

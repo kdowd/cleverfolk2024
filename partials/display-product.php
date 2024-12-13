@@ -33,7 +33,7 @@ $currency_symbol = get_woocommerce_currency_symbol("NZD");
 
             <div>
                 <a href=<?php echo $product->get_permalink(); ?> target="_self" rel="nofollow">
-                    <?php echo $product->get_image( $size = 'woocommerce_single', $attr = array("alt" => "wax wrap", "class" => "img-aspect", "loading" => "eager"), $placeholder = true ); ?>
+                    <?php echo $product->get_image( $size = 'woocommerce_single', $attr = array("alt" => "vintage football jersey", "class" => "img-aspect", "loading" => "eager"), $placeholder = true ); ?>
                 </a>
 
             </div>

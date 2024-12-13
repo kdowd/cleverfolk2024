@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow, NOODP, noarchive, max-image-preview:large">
     <meta name="description" content="crafts">
-    <meta name=" language" content="en_NZ">
+    <meta name="language" content="en_NZ">
     <meta name="keywords" content="auckland, vintage, vintage football">
     <meta name="google-site-verification" content="AGQVsaemuT_BVUfe8370hAlLjKSeEcIMxxBoqTzpFdA">
 
@@ -54,42 +54,21 @@
 
         <div class="menu-widgets-area">
             <?php echo get_template_part( 'partials/display-cart-in-menu'); ?>
-            <?php if (has_nav_menu('social-menu') || (!get_theme_mod('mcluhan_hide_social') || is_customize_preview())) : ?>
-            <div class="social-menu desktop">
-                <ul class="social-menu-inner">
-                    <li class="social-search-wrapper"><a href="<?php echo esc_url(home_url('?s=')); ?>"></a></li>
 
-                    <?php
+            <div style="display:flex; gap: 4rem" ;>
+                <a class=" toggle-mobile-search" href="<?php echo esc_url(home_url('?s=')); ?>">
+                    <img style="display:block" src=<?php echo CODE_BASE . '/assets/svgs/MaterialSymbolsSearch.svg' ?>
+                        alt="search" />
+                </a>
 
-                        $social_args = array(
-                            'theme_location'    => 'social-menu',
-                            'container'            => '',
-                            'container_class'    => 'menu-social group',
-                            'items_wrap'        => '%3$s',
-                            'menu_id'            => 'menu-social-items',
-                            'menu_class'        => 'menu-items',
-                            'depth'                => 1,
-                            'link_before'        => '<span class="screen-reader-text">',
-                            'link_after'        => '</span>',
-                            'fallback_cb'        => '',
-                        );
-
-                        wp_nav_menu($social_args);
-
-                        ?>
-
-                </ul><!-- .social-menu-inner -->
-
-            </div><!-- .social-menu -->
-
-            <?php endif; ?>
-
-
-            <div class="nav-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+                <div class="nav-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
+
+
         </div>
 
 
@@ -137,8 +116,7 @@
                 wp_list_pages($fallback_args);
             }
             if (!get_theme_mod('mcluhan_hide_social', false)) : ?>
-            <li class="toggle-mobile-search-wrapper"><a href="#"
-                    class="toggle-mobile-search"><?php _e('Search', 'mcluhan'); ?></a></li>
+
             <?php endif; ?>
         </ul><!-- .main-menu.mobile -->
 

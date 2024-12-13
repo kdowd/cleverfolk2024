@@ -230,7 +230,7 @@
     left: -9999px;
     right: 9999px;
     top: 188px;
-    z-index: 10001;
+    z-index: 100;
   }
 
   .mobile-search.active {
@@ -264,7 +264,7 @@
   .untoggle-mobile-search:before,
   .untoggle-mobile-search:after {
     background: #fff;
-    content: "";
+    content: '';
     display: block;
     height: 1px;
     position: absolute;

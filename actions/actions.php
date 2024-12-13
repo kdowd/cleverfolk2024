@@ -4,7 +4,7 @@
 
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
-add_filter('woocommerce_product_tabs', 'remove_product_tabs', 99);
+// add_filter('woocommerce_product_tabs', 'remove_product_tabs', 99);
 
 function remove_product_tabs($tabs)
 {

@@ -1,5 +1,9 @@
 <?php
 
+
+// beautiful
+//https://pineco.de/
+
 // all the hooks and filter here:
 //https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/includes/wc-template-functions.php
 
