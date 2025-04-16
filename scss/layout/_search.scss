@@ -57,3 +57,15 @@ input.search-field::-moz-placeholder {
   padding: 24px 0 24px 69px;
   width: 450px;
 }
+
+.search-results-table {
+  ol > li {
+    margin-top: unset;
+    border-top: unset;
+    padding: 0.15rem 0.25rem;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}

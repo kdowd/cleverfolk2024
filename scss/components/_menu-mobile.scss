@@ -7,15 +7,38 @@
 //     top: calc(50% - 10px);
 // }
 
+// .main-menu.mobile {
+//   .toggle-mobile-search::after {
+//     content: "\f002";
+//     font-family: "Font Awesome 5";
+//     display: inline-block;
+//     position: absolute;
+//     left: 60px;
+//     top: calc(50% - 0.8rem);
+//     font-size: 1.2rem;
+//   }
+// }
+
 .main-menu.mobile {
-  .toggle-mobile-search::after {
-    content: "\f002";
-    font-family: "Font Awesome 5";
-    display: inline-block;
-    position: absolute;
-    left: 60px;
-    top: calc(50% - 0.8rem);
-    font-size: 1.2rem;
+  font-size: larger;
+  list-style-type: none;
+
+  li {
+    background-color: black;
+    padding: 0.66rem;
+    border-radius: 8px;
+  }
+  .sub-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+
+    place-items: start;
+
+    list-style-type: disclosure-closed;
+  }
+  ul {
+    list-style-type: none;
   }
 }
 

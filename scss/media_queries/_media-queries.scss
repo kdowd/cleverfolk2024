@@ -104,15 +104,25 @@
 
   .mobile-menu-wrapper {
     background: #121212;
+    // background-color: #eb0b0b;
     color: #fff;
+    margin-top: unset;
     overflow: auto;
-    padding: 112px 7.5% 0 7.5%;
+    padding: 10px 7.5% 0 7.5%;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 499;
+    inset: 0 auto;
+    z-index: 510;
+    width: 100vw;
+
+    div:first-of-type {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0.25rem;
+    }
+    svg {
+      width: 48px;
+      height: auto;
+    }
   }
 
   .dark .mobile-menu-wrapper {
@@ -124,10 +134,7 @@
   }
 
   .main-menu {
-    margin-top: 100px;
-  }
-
-  .main-menu {
+    // margin-top: 100px;
     opacity: 0;
     // padding-bottom: 124px;
     transition: opacity 0.4s linear;
@@ -144,7 +151,6 @@
   .mobile-menu-wrapper.visible .main-menu {
     opacity: 1;
     position: relative;
-    top: 2%;
   }
 
   .mobile-menu-wrapper .social-menu {
@@ -230,7 +236,7 @@
     left: -9999px;
     right: 9999px;
     top: 188px;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .mobile-search.active {
@@ -509,10 +515,6 @@
   }
 
   /* Navigation ---------------------------- */
-
-  .mobile-menu-wrapper {
-    padding-top: 100px;
-  }
 
   .site-nav {
     padding-top: 124px;

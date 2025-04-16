@@ -2,7 +2,7 @@
 
 function remove_admin_bar()
 {
-    show_admin_bar(false);
+    show_admin_bar(true);
 }
 
 if (!function_exists('mcluhan_setup')) {

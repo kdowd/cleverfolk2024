@@ -249,6 +249,25 @@ $(document).ready(function () {
 
   WP.ajaxSearch.init(); // AJAX search on mobile
 
+  const menuCloseButton = document.querySelector(".close-mobile-menu");
+
+  if (!!menuCloseButton) {
+    menuCloseButton.addEventListener('click', (evt)=>{
+      const target = evt.target.closest(".mobile-menu-wrapper ");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      if (!!target) {
+        window.pigg = target;
+        target.classList.remove("visible")
+        target.setAttribute('style', '');
+      }
+
+      if (!!navToggle && navToggle.classList.contains('active')) {
+        navToggle.classList.remove('active');
+      }
+    });
+  }
+
   //   document.addEventListener("wc_cart_button_updated", (evt) => {
   //     alert(123);
   //   });

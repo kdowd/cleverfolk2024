@@ -6,6 +6,17 @@
 .woocommerce-breadcrumb {
   display: flex;
   justify-content: flex-end;
+
+  span {
+    background-color: lightgrey;
+    font-weight: bold;
+    padding: 0.1rem 0.666rem;
+    border-radius: 4px;
+  }
+
+  span:last-of-type {
+    // font-style: oblique;
+  }
 }
 
 table.variations {
