@@ -11,7 +11,7 @@ if (!empty($section_slug) && is_string($section_slug)) {
 
 
     if (count($results) > 0) {
-        // get_template_part( 'partials/display-product', NULL, array('results'=>$results )) ;
+
         get_template_part('partials/display-product-masonry', NULL, array('results' => $results));
     } else {
         get_template_part('partials/no-products-message', NULL);

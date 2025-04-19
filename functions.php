@@ -48,9 +48,9 @@ if (!defined('CACHE_BUSTER')) {
 }
 
 
-add_action('init', function(){
+add_action('init', function () {
 	global $order;
-	if ( is_object($order)) {
+	if (is_object($order)) {
 		logger($order);
 	}
 });
@@ -137,10 +137,10 @@ if (!function_exists('mcluhan_has_js')) {
 	function mcluhan_has_js()
 	{
 ?>
-<script>
-jQuery('html').removeClass('no-js').addClass('js');
-</script>
-<?php
+		<script>
+			jQuery('html').removeClass('no-js').addClass('js');
+		</script>
+		<?php
 	}
 }
 add_action('wp_head', 'mcluhan_has_js');
@@ -172,11 +172,11 @@ if (!function_exists('mcluhan_ajax_results')) {
 
 		?>
 
-<p class="results-title"><?php _e('Search Results', 'mcluhan'); ?></p>
+				<p class="results-title"><?php _e('Search Results', 'mcluhan'); ?></p>
 
-<ul>
+				<ul>
 
-    <?php
+					<?php
 
 					// Custom loop
 					while ($ajax_query->have_posts()) :
@@ -191,15 +191,15 @@ if (!function_exists('mcluhan_ajax_results')) {
 
 					?>
 
-</ul>
+				</ul>
 
-<?php if ($ajax_query->max_num_pages > 1) : ?>
+				<?php if ($ajax_query->max_num_pages > 1) : ?>
 
-<a class="show-all" href="<?php echo esc_url(home_url('?s=' . $string)); ?>"><?php _e('Show all', 'mcluhan'); ?></a>
+					<a class="show-all" href="<?php echo esc_url(home_url('?s=' . $string)); ?>"><?php _e('Show all', 'mcluhan'); ?></a>
 
-<?php endif; ?>
+				<?php endif; ?>
 
-<?php
+	<?php
 
 			} else {
 
@@ -237,17 +237,18 @@ require __DIR__ . '/inc/logger.php';
 require __DIR__ . '/inc/seo.php';
 require __DIR__ . '/inc/utilities.php';
 #require __DIR__ . '/inc/pretty_print.php';
- 
 
 
-function add_category_to_pages() {  
-    // Add tag metabox to page
-    register_taxonomy_for_object_type('post_tag', 'page'); 
-    // Add category metabox to page
-    //register_taxonomy_for_object_type('category', 'page');  
+
+function add_category_to_pages()
+{
+	// Add tag metabox to page
+	register_taxonomy_for_object_type('post_tag', 'page');
+	// Add category metabox to page
+	//register_taxonomy_for_object_type('category', 'page');  
 }
- // Add to the admin_init hook of your theme functions.php file 
-add_action( 'init', 'add_category_to_pages' );
+// Add to the admin_init hook of your theme functions.php file 
+add_action('init', 'add_category_to_pages');
 
 
 add_action('woocommerce_before_cart_table', 'wpdesk_cart_free_shipping_text', 5);
@@ -366,64 +367,63 @@ function cstm_display_product_category()
 }
 
 
-function woo_widgets() {
+function woo_widgets()
+{
 
-	register_sidebar( array(
+	register_sidebar(array(
 		'name'          => 'Woo BreadCrumb',
 		'id'            => 'woo-breadcrumb',
-	) );
+	));
 
-	register_sidebar( array(
+	register_sidebar(array(
 		'name'          => 'Woo All Products',
 		'id'            => 'woo-all-products',
-	) );
+	));
 
 
-	register_sidebar( array(
+	register_sidebar(array(
 		'name'          => 'Woo Filter',
 		'id'            => 'woo-filter',
-	) );
+	));
 
 
-	register_sidebar( array(
+	register_sidebar(array(
 		'name'          => 'Woo AddToCart',
 		'id'            => 'woo-add-to-cart',
-	) );
-
-	
-
+	));
 }
-	
-add_action( 'widgets_init', 'woo_widgets' );
+
+add_action('widgets_init', 'woo_widgets');
 //https://www.youtube.com/watch?v=B41nXPAxDOI
 
 
 
 
-add_action( 'template_redirect', 'redirect_category_pages' );
-function redirect_category_pages() {
-	$args = array('taxonomy'=>'product_cat');
-	$all_categories = get_categories( $args );
+add_action('template_redirect', 'redirect_category_pages');
+function redirect_category_pages()
+{
+	$args = array('taxonomy' => 'product_cat');
+	$all_categories = get_categories($args);
 
 	foreach ($all_categories as $cat) {
-		if ( is_product_category($cat->name) ) {
-			wp_redirect( home_url( "/$cat->name/" ) );
+		if (is_product_category($cat->name)) {
+			wp_redirect(home_url("/$cat->name/"));
 			exit();
 		}
 	}
 }
 
 // query vars stuff
-add_action('query_vars' , function($vars){
+add_action('query_vars', function ($vars) {
 	//$existing = (array) $vars;  // a copy BTW
-	array_push($vars,'sectionNameParam');
+	array_push($vars, 'sectionNameParam');
 	return $vars;
 });
 
 
-add_action('wp_head', function(){
-	if (is_checkout() || is_cart() ) return;
-	get_template_part('partials/display-floating-cart-info'); 
+add_action('wp_head', function () {
+	if (is_checkout() || is_cart()) return;
+	get_template_part('partials/display-floating-cart-info');
 });
 
 
@@ -432,32 +432,34 @@ add_action('wp_head', function(){
 
 // don't do this
 #add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
-function redirect_to_checkout() {
-    $checkout_url = WC()->cart->get_checkout_url();
-    if ( ! empty( $_REQUEST['username'] ) ) {
-        $thename = $_REQUEST['username'];
-        $checkout_url = esc_url( add_query_arg('username', $thename, $checkout_url ) );
-    }
-    return $checkout_url;
+function redirect_to_checkout()
+{
+	$checkout_url = WC()->cart->get_checkout_url();
+	if (! empty($_REQUEST['username'])) {
+		$thename = $_REQUEST['username'];
+		$checkout_url = esc_url(add_query_arg('username', $thename, $checkout_url));
+	}
+	return $checkout_url;
 }
 
-add_filter( 'woocommerce_add_to_cart_redirect', 'redirect_after_add_cart' );
-function redirect_after_add_cart($value ) {
+add_filter('woocommerce_add_to_cart_redirect', 'redirect_after_add_cart');
+function redirect_after_add_cart($value)
+{
 	// logger($value );
 	//wc_get_checkout_url();
 	//wc_get_relative_url( url );
-    return false;
+	return false;
 }
 
- 
-
- 
 
 
 
- 
 
- 
+
+
+
+
+
 // // works-ish
 // add_filter( 'pre_option_woocommerce_cart_redirect_after_add', 'testing7', 20 );
 
@@ -469,7 +471,7 @@ function redirect_after_add_cart($value ) {
 
 // // works-ish
 
- 
+
 
 // add_filter( 'woocommerce_add_to_cart_validation', 'testing0', 10, 5 );  
 
@@ -501,82 +503,84 @@ function redirect_after_add_cart($value ) {
 // works
 #add_action( 'woocommerce_before_shop_loop', function() {} );
 
-add_action( 'woocommerce_before_add_to_cart_form', 'add_size_guide' );
-function add_size_guide() {
+add_action('woocommerce_before_add_to_cart_form', 'add_size_guide');
+function add_size_guide()
+{
 	echo '<button class="button primary" style="background-color:#000; color:snow;">Select Size</button>';
 }
 
 //works
-add_action( 'woocommerce_after_add_to_cart_form', 'add_warning' );
-function add_warning() {
-        //echo '<p>Select your size before adding to cart</p>';  
+add_action('woocommerce_after_add_to_cart_form', 'add_warning');
+function add_warning()
+{
+	//echo '<p>Select your size before adding to cart</p>';  
 }
 
 
-add_action('woocommerce_after_variations_table', function($args){
+add_action('woocommerce_after_variations_table', function ($args) {
 	?>
-<div>
-    <details>
-        <summary>Measurements Guide:</summary>
-        <table class="table" style="table-layout:fixed">
-            <thead>
-                <tr>
-                    <th> Size</th>
-                    <th> Chest CM </th>
-                    <th> Chest Inches </th>
+	<div>
+		<details>
+			<summary>Measurements Guide:</summary>
+			<table class="table" style="table-layout:fixed">
+				<thead>
+					<tr>
+						<th> Size</th>
+						<th> Chest CM </th>
+						<th> Chest Inches </th>
 
-                </tr>
-            </thead>
+					</tr>
+				</thead>
 
-            <tbody>
-                <tr>
-                    <td>XS</td>
-                    <td>45</td>
-                    <td>18,0</td>
+				<tbody>
+					<tr>
+						<td>XS</td>
+						<td>45</td>
+						<td>18,0</td>
 
-                </tr>
-                <tr>
-                    <td>S</td>
-                    <td>48</td>
-                    <td>19,2</td>
+					</tr>
+					<tr>
+						<td>S</td>
+						<td>48</td>
+						<td>19,2</td>
 
-                </tr>
-                <tr>
-                    <td>M</td>
-                    <td>51</td>
-                    <td>20,4</td>
-                </tr>
-                <tr>
-                    <td>L</td>
-                    <td>54</td>
-                    <td>21,6</td>
-                </tr>
+					</tr>
+					<tr>
+						<td>M</td>
+						<td>51</td>
+						<td>20,4</td>
+					</tr>
+					<tr>
+						<td>L</td>
+						<td>54</td>
+						<td>21,6</td>
+					</tr>
 
-                <tr>
-                    <td>XL</td>
-                    <td>57</td>
-                    <td>22,8</td>
+					<tr>
+						<td>XL</td>
+						<td>57</td>
+						<td>22,8</td>
 
-                </tr>
+					</tr>
 
-                <tr>
-                    <td>XXL</td>
-                    <td>60</td>
-                    <td>24,0</td>
-                </tr>
-
-
+					<tr>
+						<td>XXL</td>
+						<td>60</td>
+						<td>24,0</td>
+					</tr>
 
 
-            </tbody>
 
-        </table>
-    </details>
-</div>
+
+				</tbody>
+
+			</table>
+		</details>
+	</div>
 <?php
-	
-} );
- 
+
+});
+
 
 //apply_filters( 'woocommerce_form_field', $field, $key, $args, $value );
 
@@ -598,7 +602,7 @@ add_action('woocommerce_after_variations_table', function($args){
 
 
 //works
-add_action('woocommerce_dropdown_variation_attribute_options_args', function($args){
+add_action('woocommerce_dropdown_variation_attribute_options_args', function ($args) {
 	//QM::debug($args);
 	return $args;
 });
@@ -610,72 +614,75 @@ add_action('woocommerce_dropdown_variation_attribute_options_args', function($ar
 #add_filter( 'render_block', 'append_hooks_to_cart_actions', 9999, 2 );
 
 
-function append_hooks_to_cart_actions( $block_content, $block ) {
+function append_hooks_to_cart_actions($block_content, $block)
+{
 	//QM::debug($block['blockName']);
 	return $block_content;
-   $blocks = array(
-      'woocommerce/cart',
-      'woocommerce/filled-cart-block',
-      'woocommerce/cart-items-block',
-      'woocommerce/cart-line-items-block',
-      'woocommerce/cart-cross-sells-block',
-      'woocommerce/cart-cross-sells-products-block',
-      'woocommerce/cart-totals-block',
-      'woocommerce/cart-order-summary-block',
-      'woocommerce/cart-order-summary-heading-block',
-      'woocommerce/cart-order-summary-coupon-form-block',
-      'woocommerce/cart-order-summary-subtotal-block',
-      'woocommerce/cart-order-summary-fee-block',
-      'woocommerce/cart-order-summary-discount-block',
-      'woocommerce/cart-order-summary-shipping-block',
-      'woocommerce/cart-order-summary-taxes-block',
-      'woocommerce/cart-express-payment-block',
-      'woocommerce/proceed-to-checkout-block',
-      'woocommerce/cart-accepted-payment-methods-block',
-   );
+	$blocks = array(
+		'woocommerce/cart',
+		'woocommerce/filled-cart-block',
+		'woocommerce/cart-items-block',
+		'woocommerce/cart-line-items-block',
+		'woocommerce/cart-cross-sells-block',
+		'woocommerce/cart-cross-sells-products-block',
+		'woocommerce/cart-totals-block',
+		'woocommerce/cart-order-summary-block',
+		'woocommerce/cart-order-summary-heading-block',
+		'woocommerce/cart-order-summary-coupon-form-block',
+		'woocommerce/cart-order-summary-subtotal-block',
+		'woocommerce/cart-order-summary-fee-block',
+		'woocommerce/cart-order-summary-discount-block',
+		'woocommerce/cart-order-summary-shipping-block',
+		'woocommerce/cart-order-summary-taxes-block',
+		'woocommerce/cart-express-payment-block',
+		'woocommerce/proceed-to-checkout-block',
+		'woocommerce/cart-accepted-payment-methods-block',
+	);
 
-   if ( in_array( $block['blockName'], $blocks ) ) {
-      ob_start();
-	  apply_filters( 'woo_block_before_' . $block['blockName'] , $block_content );
-      do_action( 'woo_block_before_' . $block['blockName'] , $block_content );
-	  QM::debug($block['blockName']);
-	  echo $block_content;
-      do_action( 'woo_block_after_' . $block['blockName'] );
-      $block_content = ob_get_contents();
-	  ob_end_clean();
-   }
-   return $block_content;
+	if (in_array($block['blockName'], $blocks)) {
+		ob_start();
+		apply_filters('woo_block_before_' . $block['blockName'], $block_content);
+		do_action('woo_block_before_' . $block['blockName'], $block_content);
+		QM::debug($block['blockName']);
+		echo $block_content;
+		do_action('woo_block_after_' . $block['blockName']);
+		$block_content = ob_get_contents();
+		ob_end_clean();
+	}
+	return $block_content;
 }
 
 // is called but its not a true filter i dont think
 // based upon function above adding the hook
-add_filter('woo_block_before_woocommerce/proceed-to-checkout-block', function(&$a){
-		QM::debug(gettype($a));
-       return $a;
+add_filter('woo_block_before_woocommerce/proceed-to-checkout-block', function (&$a) {
+	QM::debug(gettype($a));
+	return $a;
 });
 
 
-function product_tabs_callback($slug, $tab){
+function product_tabs_callback($slug, $tab)
+{
 	$product_title = "";
-	
-	if ( !is_null(get_queried_object()) ){
+
+	if (!is_null(get_queried_object())) {
 		$product_title = trim(get_queried_object()->post_title);
 		$pre = "Re: ";
-		$product_title = "{$pre}{$product_title }";
+		$product_title = "{$pre}{$product_title}";
 	}
-	 
+
 	echo do_shortcode("[generic_inline_form {$product_title}]");
 }
 
-add_filter('woocommerce_product_tabs', 
-function($tabs){
-	$tabs['send_product_message'] = array(
-        'title'     => __( 'Send Message', 'woocommerce' ),
-        'priority'  => 120,
-        'callback'  => 'product_tabs_callback'
-    );
-	return $tabs;
-}
+add_filter(
+	'woocommerce_product_tabs',
+	function ($tabs) {
+		$tabs['send_product_message'] = array(
+			'title'     => __('Send Message', 'woocommerce'),
+			'priority'  => 120,
+			'callback'  => 'product_tabs_callback'
+		);
+		return $tabs;
+	}
 );
 
 
@@ -698,59 +705,63 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
 */
 
- 
- 
+
+
 #add_action('wc_get_template', function($a){QM::debug($a);return $a;} );
 
 // and this is clever also - 2 functions
 // "proceed_to_checkout" is the button at the bottom of the cart page
 // this doesn't fire AFAICT
 #add_action( 'render_block', 'bbloomer_empty_cart_button_and_listener', 20 );
- 
-function bbloomer_empty_cart_button_and_listener() {
-	
-   // IF YOU ARE USING THE CART BLOCK, REMOVE THE FOLLOWING LINE
-   // AND ADD A BUTTON WITH THE "empty-button" CLASS INSTEAD
-//    echo '<a role="button" class="empty-button">Empty Cart</a>';
 
-   echo '<button class="empty-button">Empty Cart</button>';
- 
-   wc_enqueue_js( "
+function bbloomer_empty_cart_button_and_listener()
+{
+
+	// IF YOU ARE USING THE CART BLOCK, REMOVE THE FOLLOWING LINE
+	// AND ADD A BUTTON WITH THE "empty-button" CLASS INSTEAD
+	//    echo '<a role="button" class="empty-button">Empty Cart</a>';
+
+	echo '<button class="empty-button">Empty Cart</button>';
+
+	wc_enqueue_js("
       $('.empty-button').click(function(e){
          e.preventDefault();
             $.post( '" . '/wp-admin/admin-ajax.php' . "', { action: 'empty_cart' }, function() {
             location.reload();
          });
         });
-   " );
+   ");
 }
- 
-add_action( 'wp_ajax_empty_cart', 'bbloomer_empty_cart' );
-add_action( 'wp_ajax_nopriv_empty_cart', 'bbloomer_empty_cart' );
-  
-function bbloomer_empty_cart() { 
-    WC()->cart->empty_cart();
+
+add_action('wp_ajax_empty_cart', 'bbloomer_empty_cart');
+add_action('wp_ajax_nopriv_empty_cart', 'bbloomer_empty_cart');
+
+function bbloomer_empty_cart()
+{
+	WC()->cart->empty_cart();
 }
 
 
-function remove_image_zoom_support() {
-    remove_theme_support( 'wc-product-gallery-zoom' );
-	remove_theme_support( 'wc-product-gallery-lightbox' );
+function remove_image_zoom_support()
+{
+	remove_theme_support('wc-product-gallery-zoom');
+	remove_theme_support('wc-product-gallery-lightbox');
 }
 #add_action( 'after_setup_theme', 'remove_image_zoom_support', 100 );
-add_action( 'wp', 'remove_image_zoom_support', 100 );
+add_action('wp', 'remove_image_zoom_support', 100);
 
 
-add_filter( 'woocommerce_breadcrumb_defaults', 'update_woocommerce_breadcrumbs' );
-function update_woocommerce_breadcrumbs() {
-    return array(
-            'delimiter'   => '&#160; &#47; &#160; ',
-            'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb">',
-            'wrap_after'  => '</nav>',
-            'before'      => '<span>',
-            'after'       => '</span>',
-            'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
-        );
+add_filter('woocommerce_breadcrumb_defaults', 'update_woocommerce_breadcrumbs');
+function update_woocommerce_breadcrumbs()
+{
+	return array(
+		'delimiter'   => '&#160; &#47; &#160; ',
+		'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb">',
+		'wrap_after'  => '</nav>',
+		'before'      => '<span>',
+		'after'       => '</span>',
+		'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
+	);
 }
 
 
@@ -767,7 +778,7 @@ function load_touch_punch_js() {
 	wp_register_script( 'woo-jquery-touch-punch', get_stylesheet_directory_uri() . "/js/jquery.ui.touch-punch.min.js", array('jquery'), $version, true );
 	wp_enqueue_script( 'woo-jquery-touch-punch' );
 }
-*/
+ */
 
 
 /**
@@ -789,4 +800,4 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	return $fragments;
 }
 
-*/
+ */
