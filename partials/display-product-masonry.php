@@ -36,20 +36,20 @@ $currency_symbol = get_woocommerce_currency_symbol("NZD");
     }
 
 
-    .grid-wrapper>div:nth-child(even) {
+    .grid-wrapper>div:nth-child(1n) {
         grid-column: span 2;
         grid-row: span 16;
     }
 
-    .grid-wrapper>div:nth-child(odd) {
+    .grid-wrapper>div:nth-child(2n) {
 
         grid-column: span 2;
         grid-row: span 20;
     }
 
-    .grid-wrapper>div:nth-child(5n+6) {
+    .grid-wrapper>div:nth-child(3n) {
         grid-column: span 2;
-        grid-row: span 24;
+        grid-row: span 18;
     }
 
     .card {
@@ -64,7 +64,7 @@ $currency_symbol = get_woocommerce_currency_symbol("NZD");
         position: absolute;
         box-sizing: border-box;
         bottom: 0;
-        z-index: 100;
+
         border-radius: 0.15rem;
         color: snow;
         text-align: left;
@@ -135,6 +135,7 @@ $currency_symbol = get_woocommerce_currency_symbol("NZD");
                         <?php endif; ?>
 
                     </span>
+
                 </div>
 
                 <div class="cart-buttons-grid">
