@@ -68,7 +68,7 @@
 //button wc-backward
 #override .woocommerce-message,
 #override .woocommerce-info {
-  border-top-color: var(--site-colour-primary-dark);
+  border-top-color: var(--button-background-colour);
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -84,12 +84,12 @@
 
 #override .button.wc-backward,
 .woocommerce a.button {
-  background-color: var(--site-colour-primary-dark);
+  background-color: var(--button-background-colour);
   color: snow;
 }
 
 #override .woocommerce-info::before {
-  color: var(--site-colour-primary-dark);
+  color: var(--button-background-colour);
 }
 
 #override .woocommerce-error,

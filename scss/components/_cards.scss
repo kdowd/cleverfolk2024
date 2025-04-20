@@ -1,63 +1,76 @@
-.product-card {
+.grid-wrapper {
   display: grid;
-  grid-template-rows: 71.75% 1fr;
-  isolation: isolate;
-  position: relative;
-  top: 0;
-  left: 0;
-  filter: drop-shadow(2px 2px 8px rgba(0 0 0 / 40%));
-  background-color: transparent;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-bottom: 1px solid black;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  justify-content: center;
+  grid-auto-rows: 1.2rem;
+  grid-auto-flow: dense;
+  width: 96%;
+  margin: 3rem auto;
+}
 
-  div:first-of-type {
-    img {
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
-    }
+.grid-wrapper .product-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+  position: relative;
+  overflow: clip;
+
+  border-radius: var(--site-radius);
+}
+
+.grid-wrapper .product-card > img:first-of-type {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-wrapper > div:nth-child(1n) {
+  grid-column: span 2;
+  grid-row: span 16;
+}
+
+.grid-wrapper > div:nth-child(2n) {
+  grid-column: span 2;
+  grid-row: span 20;
+}
+
+.grid-wrapper > div:nth-child(3n) {
+  grid-column: span 2;
+  grid-row: span 18;
+}
+
+.card-info-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgba(0, 0, 0, 1);
+  min-height: 80px;
+  margin: auto 1rem;
+  width: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: var(--site-radius);
+  border-bottom-left-radius: var(--site-radius);
+
+  color: snow;
+  text-align: left;
+  text-wrap: balance;
+  font-size: 1.35rem;
+  padding: 0.4rem;
+  font-weight: 300;
+  a {
+    background-color: var(--button-background-colour);
   }
 }
-.card-details {
+
+.small-info {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 0.6rem;
-  color: #121212;
-  background-color: snow;
-  width: 100%;
-  padding-bottom: 0.75rem;
-
-  span {
-    text-wrap: balance;
-  }
-
-  hr {
-    margin: 0;
-  }
-  .small-info {
-    font-weight: 700;
-    font-family: system-ui;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding: 0 1rem;
-
-    > div:first-of-type,
-    div:last-of-type {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      text-transform: uppercase;
-      gap: 1rem;
-    }
-
-    > div:last-of-type {
-      color: var(--popout-colour);
-      font-size: 14px;
-      font-style: oblique;
-    }
-  }
+  justify-content: space-between;
+  padding: 0 1rem;
 }

@@ -44,12 +44,17 @@
 }
 
 #override .button.product_type_simple_with-icon {
-  font-size: 18px;
+  font-size: 1rem;
   padding: 0.618em 1em;
-  border-radius: 3px;
+  border-radius: var(--site-radius);
   line-height: 1;
   display: flex;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  img {
+    width: 1.4rem;
+  }
 }
 
 .my-proceed {
